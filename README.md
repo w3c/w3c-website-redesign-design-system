@@ -1,8 +1,10 @@
-# Pattern library documentation
+# W3C design system
 
-A starting point for building pattern library documentation as a static site, using [Metalsmith](https://metalsmith.io/) and selected plugins.
+A static site documenting the styles, components and templates forming the basis of the W3C website.
 
 ## How do I get set up?
+
+You'll need [Git](https://help.github.com/articles/set-up-git/) and [Node.js](https://nodejs.org/en/) installed to get this project running.
 
 ### Installation
 
@@ -24,10 +26,24 @@ If needed, update `package.json` to manage the packages required.
 
 ### Build
 
-To build the site, [serve it locally](http://localhost:8081) and watch for changes:
+There are two steps to building the static site.
+
+#### Building Apollo
+
+The design system includes a copy of Apollo, customised for the W3C website. Should there be any additions or amendments to the CSS or JavaScript, those changes need to be made to Apollo. Then run the following command:
 
 ```bash
-node build
+# Build Apollo
+npm run build-apollo
+```
+
+#### Building the design system
+
+To build the site and [serve it locally](http://localhost:3000/):
+
+```bash
+# Build the design system
+npm run build-site
 ```
 
 ## Dependencies
@@ -37,11 +53,12 @@ node build
 - [Metalsmith](https://github.com/segmentio/metalsmith)
 - [jstransformer-marked](https://github.com/jstransformers/jstransformer-marked)
 - [jstransformer-nunjucks](https://github.com/jstransformers/jstransformer-nunjucks)
-- [metalsmith-code-highlight](https://github.com/fortes/metalsmith-code-highlight)
 - [metalsmith-in-place](https://github.com/metalsmith/metalsmith-in-place)
+- [metalsmith-code-highlight](https://github.com/fortes/metalsmith-code-highlight)
+- [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)
+- [metalsmith-static](https://github.com/TheHydroImpulse/metalsmith-static)
 - [metalsmith-layouts](https://github.com/metalsmith/metalsmith-layouts)
-- [metalsmith-serve](https://github.com/mayo/metalsmith-serve)
-- [metalsmith-watch](https://github.com/FWeinb/metalsmith-watch)
+- [metalsmith-browser-sync](https://github.com/mdvorscak/metalsmith-browser-sync)
 
 ## Deployment instructions
 
