@@ -1,7 +1,7 @@
 {
-  "name": "pattern-library-docs",
+  "name": "w3c-website-redesign-design-system",
   "version": "1.0.0",
-  "author": "",
+  "author": "Studio 24",
   "description": "",
   "main": "index.js",
   "config": {
@@ -33,14 +33,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/studio24/pattern-library-docs.git"
+    "url": "git+https://github.com/w3c/w3c-website-redesign-design-system/.git"
   },
   "keywords": [],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/studio24/pattern-library-docs/issues"
+    "url": "https://github.com/w3c/w3c-website-redesign-design-system/issues"
   },
-  "homepage": "https://github.com/studio24/pattern-library-docs#readme",
+  "homepage": "https://github.com/w3c/w3c-website-redesign-design-system/#readme",
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/polyfill": "^7.12.1",
