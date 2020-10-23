@@ -1,0 +1,20 @@
+---
+title: This is our TR example
+layout: showcase.njk
+---
+{% import "views/macros/components/_button.njk" as buttonMacros %}
+{% import "views/macros/components/_blockquote.njk" as blockquoteMacros %}
+
+<header>Header is here</header>
+
+{{ blockquoteMacros.blockquote('Lorem ipsum and some more stuff that the person said and that was very interesting.', 'That person, CEO of that company') }}
+
+{{ buttonMacros.button('Hi there!') }}
+
+<aside>
+This is a sidebar
+</aside>
+
+<footer>
+footer is here
+</footer>

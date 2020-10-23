@@ -1,0 +1,43 @@
+/*------------------------------------*\
+    #Links
+\*------------------------------------*/
+
+/**
+Default global link styles that do not interfere with component link styles
+- see https://alexcarpenter.me/screencasts/2019/02/global-link-styles/
+
+1. Don't rely on colour alone for styling links - see
+https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20161007/F73
+
+2. For I18N we are using box-shadow instead of the default link underline,
+which does not work well with e.g. Arabic. To provide support to IE 9-11
+we add `border-collapse: collapse;` and ensure that `inset` is the last keyword
+
+3. Remove the outline on focused links when they are also active/hovered.
+ */
+a:not([class]) {
+
+	border: 0;
+	border-collapse: collapse;
+	box-shadow: 0 -1px 0 0 inset; /* 1, 2 */
+	color: $link-color;
+	cursor: pointer;
+	padding-left: rem(2);
+	padding-right: rem(2);
+	text-decoration: none; /* 2 */
+
+	&:visited {
+
+		color: $link-color--visited;
+
+	}
+
+	&:hover,
+	&:active {
+
+		color: $link-color--hover;
+		outline-width: 0; /* 3 */
+
+	}
+
+}

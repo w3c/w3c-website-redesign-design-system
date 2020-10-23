@@ -1,0 +1,20 @@
+---
+title: Button
+layout: content-components.njk
+---
+{% import "views/macros/_iframe.njk" as macroExample %}
+{% import "views/macros/components/_button.njk" as buttonMacros %}
+
+<h1>{{ title }}</h1>
+
+Where and how to use buttons and their function.
+
+Here is an example
+
+{{ macroExample.showCase('This is my iframe title', '/demos/button.html') }}
+
+Here is the code of the example.
+
+```html
+{{ buttonMacros.button('Hi there!') }}
+```

@@ -1,0 +1,134 @@
+/*------------------------------------*\
+    #Icons
+\*------------------------------------*/
+
+svg {
+
+	fill: currentColor;
+	height: auto;
+	width: 100%;
+
+}
+
+
+/**
+SVG icons are sized relative to font size, thanks to the em unit.
+
+1. When the cap unit is supported this will make it easier to match icon
+size to text size.
+ */
+svg.icon {
+
+	height: 0.75em;
+	height: 1cap; /* 1 */
+	vertical-align: baseline;
+	width: 0.75em;
+	width: 1cap; /* 1 */
+
+}
+
+svg.icon--larger {
+
+	height: rem(35);
+	width: rem(35);
+
+}
+
+
+/**
+Use the `with-icon` class on the SVG's parent, if there
+is a need to specify the spacing between text and icon.
+Pay attention to whether the icon is before the text or after.
+
+2. Logical property creates appropriate spacing irrespective of text direction
+ */
+
+.with-icon--before,
+.with-icon--after {
+
+	align-items: baseline;
+	display: inline-flex;
+
+}
+
+.with-icon--larger {
+
+	align-items: center;
+
+}
+
+[dir="ltr"] {
+
+	.with-icon--before {
+
+		.icon {
+
+			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-end: 1em) {
+
+				margin-right: 0;
+				margin-inline-end: rem(8); /* 2 */
+
+			}
+
+		}
+
+	}
+
+	.with-icon--after {
+
+		.icon {
+
+			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-left: 0;
+				margin-inline-start: rem(8); /* 2 */
+
+			}
+
+		}
+
+	}
+
+}
+
+[dir="rtl"] {
+
+	.with-icon--before {
+
+		.icon {
+
+			margin-left: rem(8); // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-left: 0;
+				margin-inline-end: rem(8); /* 2 */
+
+			}
+
+		}
+
+	}
+
+	.with-icon--after {
+
+		.icon {
+
+			margin-right: rem(8); // IE fallback for next rule - only works for ltr languages
+
+			@supports (margin-inline-start: 1em) {
+
+				margin-right: 0;
+				margin-inline-start: rem(8); /* 2 */
+
+			}
+
+		}
+
+	}
+
+}

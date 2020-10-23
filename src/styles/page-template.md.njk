@@ -1,0 +1,11 @@
+---
+title: Page template
+layout: content-styles.njk
+---
+{% import "views/macros/_iframe.njk" as macroExample %}
+
+<h1>{{ title }}</h1>
+
+## Default
+
+{{ macroExample.showCase('Default page template example') }}

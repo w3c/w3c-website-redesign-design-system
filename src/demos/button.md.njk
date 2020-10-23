@@ -1,0 +1,9 @@
+---
+title: This is our button example
+layout: showcase.njk
+---
+{% import "views/macros/components/_button.njk" as buttonMacros %}
+
+{{ buttonMacros.button('A button') }}
+
+{{ buttonMacros.disabledButton('This is disabled') }}

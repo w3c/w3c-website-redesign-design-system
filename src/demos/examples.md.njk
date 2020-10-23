@@ -1,0 +1,11 @@
+---
+title: This is our first example
+layout: showcase.njk
+---
+{% import "views/macros/components/_button.njk" as buttonMacros %}
+{% import "views/macros/components/_blockquote.njk" as blockquoteMacros %}
+
+
+{{ buttonMacros.button('Hi there!') }}
+
+{{ blockquoteMacros.blockquote('Lorem ipsum and some more stuff that the person said and that was very interesting', 'That person, CEO of that company') }}
