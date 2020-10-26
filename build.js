@@ -10,7 +10,6 @@ const inPlace = require('metalsmith-in-place'); // Render templating syntax in s
 const codeHighlight = require('metalsmith-code-highlight'); // Syntax highlighter
 const layouts = require('metalsmith-layouts'); // Apply layouts to source files
 const assets = require('metalsmith-static'); // Copy assets into build directory without manipulating
-const browserSync = require('metalsmith-browser-sync'); // Local server
 
 const templateConfig = {
 	directory: 'views',
@@ -52,12 +51,6 @@ metalsmith(__dirname)
 
 	// Apply layouts to source files
 	.use(layouts(templateConfig))
-
-	// Local server
-	// .use(browserSync({
-	// 	server: 'html-build',
-	// 	files: ['assets/**/*', 'src/**/*', 'views/**/*', 'macros/**/*']
-	// }))
 
 	// Tell Metalsmith to build the site
 	.build(function(error) {

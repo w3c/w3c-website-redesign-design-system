@@ -2,19 +2,23 @@
 
 A static site documenting the styles, components and templates forming the basis of the W3C website.
 
+## URLS
+- Live: https://design-system.w3.org/
+- Local development: http://local.design-system.w3.org
+
 ## How do I get set up?
 
 You'll need [Git](https://help.github.com/articles/set-up-git/) and [Node.js](https://nodejs.org/en/) installed to get this project running.
 
 ### Installation
 
-From within the project root
+`nvm use` picks up the version automatically from the `.nvmrc` project root file, which just contains the version number:
 
 ```bash
-# Switch your version of Node to the correct version for this project (see .nvmrc)
+# Run from within the project root: 
 nvm use
 
-# Install dependencies
+# Install dependencies:
 npm install
 ```
 
@@ -33,16 +37,16 @@ There are two steps to building the static site.
 The design system includes a copy of Apollo, customised for the W3C website. Should there be any additions or amendments to the CSS or JavaScript, those changes need to be made to Apollo. Then run the following command:
 
 ```bash
-# Build Apollo
+# Build Apollo:
 npm run build-apollo
 ```
 
 #### Building the design system
 
-To build the site and [serve it locally](http://localhost:3000/):
+To build the static website
 
 ```bash
-# Build the design system
+# Build static site: 
 npm run build-site
 ```
 
@@ -58,7 +62,6 @@ npm run build-site
 - [metalsmith-collections](https://github.com/segmentio/metalsmith-collections)
 - [metalsmith-static](https://github.com/TheHydroImpulse/metalsmith-static)
 - [metalsmith-layouts](https://github.com/metalsmith/metalsmith-layouts)
-- [metalsmith-browser-sync](https://github.com/mdvorscak/metalsmith-browser-sync)
 
 ## Deployment instructions
 
