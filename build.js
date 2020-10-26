@@ -54,10 +54,10 @@ metalsmith(__dirname)
 	.use(layouts(templateConfig))
 
 	// Local server
-	.use(browserSync({
-		server: 'html-build',
-		files: ['assets/**/*', 'src/**/*', 'views/**/*', 'macros/**/*']
-	}))
+	// .use(browserSync({
+	// 	server: 'html-build',
+	// 	files: ['assets/**/*', 'src/**/*', 'views/**/*', 'macros/**/*']
+	// }))
 
 	// Tell Metalsmith to build the site
 	.build(function(error) {
