@@ -99,7 +99,7 @@ task('deploy:update_code', function () {
     $directory = run('basename {{repository}} .git');
 
     writeln("<info>Uploading files to server</info>");
-    upload($buildRoot.'/'.$directory.'/', '{{release_path}}');
+    upload($buildRoot.'/'.$directory.'/html-build/', '{{release_path}}');
 });
 
 
