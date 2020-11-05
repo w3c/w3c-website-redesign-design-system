@@ -28,7 +28,10 @@ metalsmith(__dirname)
 	.use(inPlace(templateConfig))
 
 	// Syntax highlighter
-	.use(codeHighlight())
+	.use(codeHighlight({
+		languages: [],
+		selector: 'pre > code'
+	}))
 
 	// Group content into collections
 	.use(collections({
