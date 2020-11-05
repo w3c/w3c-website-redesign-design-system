@@ -771,6 +771,17 @@ table caption {
 	border-bottom-color: inherit;
 }
 
+.global-logo svg {
+	display: block;
+	height: 3rem;
+	width: 4.5rem;
+}
+
+.global-logo span {
+	font-size: 1.875rem;
+	margin-left: 0.5rem;
+}
+
 
 
 /*------------------------------------*\
