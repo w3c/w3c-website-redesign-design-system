@@ -1,0 +1,212 @@
+---
+title: Color
+layout: content-styles.njk
+---
+{% import "views/macros/_colors.njk" as macroColors %}
+
+{% set surface = [
+	{
+		"color_name" : "$white",
+		"sass_variable" : "",
+        "color_value" : "#ffffff",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$mist-gray",
+        "sass_variable" : "",
+        "color_value" : "#f8f8fb",
+        "color_notes" : ""
+    }
+]%}
+
+{% set core = [
+	{
+		"color_name" : "$w3c-blue",
+		"sass_variable" : "$link-color",
+        "color_value" : "#005a9c",
+        "color_notes" : "Link default state."
+    },
+    {
+        "color_name" : "$deep-blue",
+        "sass_variable" : "$link-color--hover",
+        "color_value" : "#024488",
+        "color_notes" : "Link hover state."
+    }
+]%}
+
+{% set text = [
+	{
+		"color_name" : "$off-black",
+		"sass_variable" : "",
+        "color_value" : "#111111",
+        "color_notes" : "Default text."
+    },
+    {
+        "color_name" : "$storm-gray",
+        "sass_variable" : "",
+        "color_value" : "#585858",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$twiki-gray",
+        "sass_variable" : "",
+        "color_value" : "#bdbdbd",
+        "color_notes" : ""
+    }
+]%}
+
+{% set secondary = [
+	{
+		"color_name" : "$deep-green",
+		"sass_variable" : "",
+        "color_value" : "#0a4343",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$teal-green",
+        "sass_variable" : "",
+        "color_value" : "#237978",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "deep-yellow",
+        "sass_variable" : "",
+        "color_value" : "#f9c818",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "yellow",
+        "sass_variable" : "",
+        "color_value" : "#f9dc4a",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$red",
+        "sass_variable" : "",
+        "color_value" : "#e93737",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$pastel-red",
+        "sass_variable" : "",
+        "color_value" : "#ec7070",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$coral",
+        "sass_variable" : "",
+        "color_value" : "#fc7750",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$light-coral",
+        "sass_variable" : "",
+        "color_value" : "#fea78d",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "$azure",
+        "sass_variable" : "",
+        "color_value" : "#0075ff",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "sky-blue",
+        "sass_variable" : "",
+        "color_value" : "#6bc8fe",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "aqua",
+        "sass_variable" : "",
+        "color_value" : "#1bc0d7",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "light-blue",
+        "sass_variable" : "",
+        "color_value" : "#cbe0fb",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "pink",
+        "sass_variable" : "",
+        "color_value" : "#ddb0c8",
+        "color_notes" : ""
+    },
+    {
+        "color_name" : "light-pink",
+        "sass_variable" : "",
+        "color_value" : "#eeccdc",
+        "color_notes" : ""
+    }
+]%}
+
+
+<h1>{{ title }}</h1>
+
+## Color contrast
+You must make sure that the contrast ratio of text and interactive elements in your service meets level AA of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+
+## Color palette
+We advise you to use the [Sass variables](https://sass-lang.com/guide#topic-2) provided, rather than copying the hexadecimal (hex) color values. This will ensure that, in the event of a CSS update, your site will continue to use the most recent colour palette.
+
+Only use the variables in the context they’re designed for. In all other cases, you should reference the colour palette directly.
+
+<table>
+	<caption>Table of colors and notes on their usage</caption>
+	<tbody>
+		<tr>
+			<td colspan="4"><h3>Surfaces</h3></td>
+		</tr>
+		{% for color in surface %}
+			{{
+				macroColors.cardSwatch(
+					color.color_name,
+					color.sass_variable,
+					color.color_value,
+					color.color_notes
+				)
+			}}
+		{% endfor %}
+		<tr>
+			<td colspan="4"><h3>Core colors</h3></td>
+		</tr>
+		{% for color in core %}
+			{{
+				macroColors.cardSwatch(
+					color.color_name,
+					color.sass_variable,
+					color.color_value,
+					color.color_notes
+				)
+			}}
+		{% endfor %}
+		<tr>
+			<td colspan="4"><h3>Text and borders</h3></td>
+		</tr>
+		{% for color in text %}
+			{{
+				macroColors.cardSwatch(
+					color.color_name,
+					color.sass_variable,
+					color.color_value,
+					color.color_notes
+				)
+			}}
+		{% endfor %}
+		<tr>
+			<td colspan="4"><h3>Secondary colors</h3></td>
+		</tr>
+		{% for color in secondary %}
+			{{
+				macroColors.cardSwatch(
+					color.color_name,
+					color.sass_variable,
+					color.color_value,
+					color.color_notes
+				)
+			}}
+		{% endfor %}
+	</tbody>
+</table>

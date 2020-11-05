@@ -778,8 +778,9 @@ table caption {
 }
 
 .global-logo span {
-	font-size: 1.875rem;
-	margin-left: 0.5rem;
+	font-size: 1.7rem;
+	font-weight: bold;
+	margin-left: 0.5em;
 }
 
 
@@ -788,6 +789,7 @@ table caption {
 	#Navigation
 \*------------------------------------*/
 .nav-link {
+	font-weight: bold;
 	text-decoration: none;
 }
 
@@ -809,28 +811,22 @@ main > * {
 /*------------------------------------*\
 	Design swatches
 \*------------------------------------*/
-.swatches {
-	display: flex;
-}
-
 .color-swatch-tile {
-	box-shadow: 0 0 10px #ccc;
-	margin-right: 1rem;
-	padding: 1rem;
-	width: 160px;
+	align-items: center;
+	display: inline-flex;
 }
 
 .color-swatch {
-	height: 150px;
+	border: 1px black dashed;
+	border-radius: 4px;
+	height: 2rem;
+	width: 2rem;
 }
 
 .color-name {
-	font-weight: bold;
-	margin: 0 0 3px 0;
-}
-
-.color-notes {
-	font-size: 0.9rem;
+	font-family: Monaco, 'Lucida Console', monospace;
+	font-weight: normal;
+	margin-left: 0.5em;
 }
 
 

@@ -44,36 +44,22 @@ alert(s);
 
 {% set colors = [
         {
-          "color_name"  : "brandColor",
+          "sass_variable"  : "brandColor",
           "color_value" : "#f06d06",
           "color_notes" : "Our main color."
 
         },
         {
-          "color_name"  : "brandHighlight",
+          "sass_variable"  : "brandHighlight",
           "color_value" : "#d0b000",
           "color_notes" : "For callouts and highlights."
         },
         {
-          "color_name"  : "grayDark",
+          "sass_variable"  : "grayDark",
           "color_value" : "#333333",
           "color_notes" : "For things like code block backgrounds."
         }
       ]
     %}
-
-<div class="swatches">
-    {% for color in colors %}
-
-      {{
-        macroColors.cardSwatch(
-         color.color_name,
-         color.color_value,
-         color.color_notes
-        )
-      }}
-
-    {% endfor %}
-</div>
 
 {{ macroExample.showCase('This is my iframe title', 'demos/examples.html') }}
