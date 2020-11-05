@@ -352,6 +352,43 @@ template {
 
 
 /*------------------------------------*\
+    #Fonts
+\*------------------------------------*/
+@font-face {
+	font-display: fallback;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 400;
+	src: url("fonts/notosans-regular.woff2") format("woff2"), url("fonts/notosans-regular.woff") format("woff");
+}
+
+@font-face {
+	font-display: fallback;
+	font-family: 'Noto Sans';
+	font-style: italic;
+	font-weight: 400;
+	src: url("fonts/notosans-italic.woff2") format("woff2"), url("fonts/notosans-italic.woff") format("woff");
+}
+
+@font-face {
+	font-display: fallback;
+	font-family: 'Noto Sans';
+	font-style: normal;
+	font-weight: 600;
+	src: url("fonts/notosans-bold.woff2") format("woff2"), url("fonts/notosans-bold.woff") format("woff");
+}
+
+@font-face {
+	font-display: fallback;
+	font-family: 'Noto Sans';
+	font-style: italic;
+	font-weight: 600;
+	src: url("fonts/notosans-bolditalic.woff2") format("woff2"), url("fonts/notosans-bolditalic.woff") format("woff");
+}
+
+
+
+/*------------------------------------*\
 	#Base
 \*------------------------------------*/
 html {
@@ -377,6 +414,10 @@ body {
 	overflow-x: hidden;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+}
+
+.fonts-loaded body {
+	font-family: "Noto Sans", "Trebuchet MS", Geneva, sans-serif;
 }
 
 

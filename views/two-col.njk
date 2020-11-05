@@ -8,6 +8,16 @@
 
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 
+	<script src="../assets/apollo-dist/assets/js/libraries/fontfaceobserver.js"></script>
+
+	<script>
+		var myFont = new FontFaceObserver('Noto Sans');
+
+		Promise.all([myFont.load()]).then(function () {
+			document.documentElement.className += " fonts-loaded";
+		});
+	</script>
+
 	<link rel="stylesheet" href="../assets/design-system/styles.css" media="screen" />
 	<link rel="stylesheet" href="../assets/design-system/a11y-dark.css" media="screen" />
 </head>
