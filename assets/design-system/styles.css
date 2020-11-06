@@ -441,7 +441,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 :focus {
-	outline: 2px solid red;
+	outline: 2px solid rebeccapurple;
 	outline-offset: -2px;
 }
 
@@ -504,6 +504,10 @@ i {
 	font-style: italic;
 }
 
+code {
+	color: #b30000;
+}
+
 
 a:not([class]) {
 	border: 0;
@@ -516,7 +520,7 @@ a:not([class]) {
 }
 
 a:not([class]):visited {
-	color: purple;
+	color: rebeccapurple;
 }
 
 a:not([class]):hover,
@@ -621,6 +625,7 @@ dl dd + dd {
 
 table {
 	background-color: transparent;
+	border: 1px solid;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -709,7 +714,7 @@ table caption {
 
 .l-sidebar .sidebar {
 	display: flex;
-	flex-basis: 20rem;
+	flex-basis: 18.75rem;
 	flex-direction: column;
 	flex-grow: 1;
 	justify-content: flex-start;
@@ -809,24 +814,72 @@ main > * {
 
 
 /*------------------------------------*\
-	Design swatches
+	Color swatches
 \*------------------------------------*/
-.color-swatch-tile {
-	align-items: center;
-	display: inline-flex;
+.swatches,
+.swatches th,
+.swatches td {
+	border: none;
+}
+
+.swatches tr {
+	border-bottom: solid 0.625rem transparent;
+	display: table-row;
+}
+
+.swatches th {
+	display: block;
+	font-weight: normal;
+	padding-left: 3.125rem;
+	position: relative;
+}
+
+.swatches th,
+.swatches td {
+	padding: 0.3125rem;
+}
+
+.swatches code {
+	color: #111;
 }
 
 .color-swatch {
 	border: 1px black dashed;
 	border-radius: 4px;
-	height: 2rem;
-	width: 2rem;
+	display: block;
+	height: 2.5rem;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 2.5rem;
 }
 
-.color-name {
-	font-family: Monaco, 'Lucida Console', monospace;
-	font-weight: normal;
-	margin-left: 0.5em;
+@media screen and (min-width: 48em) {
+
+	.color-swatch {
+		display: inline-block;
+		margin-right: 0.625rem;
+		position: static;
+		vertical-align: middle;
+	}
+
+}
+
+.swatches th,
+.swatches td {
+	display: block;
+	padding-left: 3.125rem;
+	position: relative;
+}
+
+@media screen and (min-width: 48em) {
+
+	.swatches th,
+	.swatches td {
+		display: table-cell;
+		padding: 0.3125rem;
+	}
+
 }
 
 

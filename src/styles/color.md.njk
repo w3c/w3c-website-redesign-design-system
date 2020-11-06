@@ -69,13 +69,13 @@ layout: content-styles.njk
         "color_notes" : ""
     },
     {
-        "color_name" : "deep-yellow",
+        "color_name" : "$deep-yellow",
         "sass_variable" : "",
         "color_value" : "#f9c818",
         "color_notes" : ""
     },
     {
-        "color_name" : "yellow",
+        "color_name" : "$yellow",
         "sass_variable" : "",
         "color_value" : "#f9dc4a",
         "color_notes" : ""
@@ -87,7 +87,7 @@ layout: content-styles.njk
         "color_notes" : ""
     },
     {
-        "color_name" : "$pastel-red",
+        "color_name" : "$light-red",
         "sass_variable" : "",
         "color_value" : "#ec7070",
         "color_notes" : ""
@@ -111,31 +111,31 @@ layout: content-styles.njk
         "color_notes" : ""
     },
     {
-        "color_name" : "sky-blue",
+        "color_name" : "$sky-blue",
         "sass_variable" : "",
         "color_value" : "#6bc8fe",
         "color_notes" : ""
     },
     {
-        "color_name" : "aqua",
+        "color_name" : "$aqua",
         "sass_variable" : "",
         "color_value" : "#1bc0d7",
         "color_notes" : ""
     },
     {
-        "color_name" : "light-blue",
+        "color_name" : "$light-blue",
         "sass_variable" : "",
         "color_value" : "#cbe0fb",
         "color_notes" : ""
     },
     {
-        "color_name" : "pink",
+        "color_name" : "$pink",
         "sass_variable" : "",
         "color_value" : "#ddb0c8",
         "color_notes" : ""
     },
     {
-        "color_name" : "light-pink",
+        "color_name" : "$light-pink",
         "sass_variable" : "",
         "color_value" : "#eeccdc",
         "color_notes" : ""
@@ -146,15 +146,15 @@ layout: content-styles.njk
 <h1>{{ title }}</h1>
 
 ## Color contrast
-You must make sure that the contrast ratio of text and interactive elements in your service meets level AA of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+Make sure that the contrast ratio of text and interactive elements on your site meets at least level AA of the [Web Content Accessibility Guidelines (WCAG 2.1)](https://www.w3.org/TR/WCAG21/#contrast-minimum), preferably level AAA.
 
 ## Color palette
 We advise you to use the [Sass variables](https://sass-lang.com/guide#topic-2) provided, rather than copying the hexadecimal (hex) color values. This will ensure that, in the event of a CSS update, your site will continue to use the most recent colour palette.
 
-Only use the variables in the context they’re designed for. In all other cases, you should reference the colour palette directly.
+Only use the variables in the context they’re designed for. In all other cases, you should reference the colour palette directly. For example, `w3c-blue` is used as the default link color; if you want to use it for an additional purpose you should use `w3c-blue` rather than `link-color`.
 
-<table>
-	<caption>Table of colors and notes on their usage</caption>
+<table class="swatches" aria-labelledby="#color-table">
+	<caption id="color-table">Table of colors and notes on their usage</caption>
 	<tbody>
 		<tr>
 			<td colspan="4"><h3>Surfaces</h3></td>
