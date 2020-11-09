@@ -802,6 +802,18 @@ table caption {
 	text-decoration: underline;
 }
 
+.global-nav li {
+	border-bottom: solid 3px transparent;
+}
+
+.global-nav li.active {
+	border-bottom-color: blue;
+}
+
+.global-nav li.active .nav-link:hover {
+	text-decoration: none;
+}
+
 
 
 /*------------------------------------*\
