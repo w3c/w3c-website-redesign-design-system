@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block sidemenu %}
-	<nav>
+	<nav class="section-nav">
 		<ul class="clean-list" role="list">
 			{% for style in collections.styles %}
-				<li><a class="nav-link" href="/{{ style.path }}">{{ style.title }}</a></li>
+				<li class="{{ 'active' if nav in style.path }}"><a class="nav-link" href="/{{ style.path }}">{{ style.title }}</a></li>
 			{% endfor %}
 		</ul>
 	</nav>

@@ -511,7 +511,7 @@ code {
 
 a:not([class]) {
 	border: 0;
-	color: blue;
+	color: #005A9C;
 	cursor: pointer;
 	padding-left: 0.125rem;
 	padding-right: 0.125rem;
@@ -520,12 +520,12 @@ a:not([class]) {
 }
 
 a:not([class]):visited {
-	color: rebeccapurple;
+	color: purple;
 }
 
 a:not([class]):hover,
 a:not([class]):active {
-	color: blue;
+	color: #005A9C;
 	outline-width: 0;
 }
 
@@ -608,7 +608,7 @@ dl dd + dd {
 
 
 .skip-link {
-	background-color: blue;
+	background-color: #005A9C;
 	color: white;
 	padding: 0.625em 0.9375em;
 	text-decoration: none;
@@ -794,23 +794,47 @@ table caption {
 	#Navigation
 \*------------------------------------*/
 .nav-link {
+	display: inline-block;
 	font-weight: bold;
+	padding: 10px 5px;
 	text-decoration: none;
 }
 
 .nav-link:hover {
 	text-decoration: underline;
+	text-decoration-skip-ink: auto;
 }
 
-.global-nav li {
-	border-bottom: solid 3px transparent;
+.global-nav li,
+.section-nav li {
+	position: relative;
 }
 
-.global-nav li.active {
-	border-bottom-color: blue;
+.global-nav li.active::after,
+.section-nav li.active::after {
+	background-color: #005A9C;
+	content: '';
+	display: block;
+	position: absolute;
 }
 
-.global-nav li.active .nav-link:hover {
+.global-nav li.active::after {
+	bottom: 0.25em;
+	height: 3px;
+	left: 0;
+	width: 100%;
+}
+
+.section-nav li.active::after {
+	height: 60%;
+	left: -3px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 3px;
+}
+
+.global-nav li.active .nav-link:hover,
+.section-nav li.active .nav-link:hover {
 	text-decoration: none;
 }
 
