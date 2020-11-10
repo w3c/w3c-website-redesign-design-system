@@ -38,11 +38,11 @@ metalsmith(__dirname)
 		components: {
 			pattern: ['components/**/*', '!components/index.html']
 		},
-		templates: {
-			pattern: ['templates/**/*', '!templates/index.html']
-		},
 		styles: {
 			pattern: ['styles/**/*', '!styles/index.html']
+		},
+		templates: {
+			pattern: ['templates/**/*', '!templates/index.html']
 		}
 	}))
 
