@@ -1,0 +1,15 @@
+{% macro boxDefault(boxText) %}
+<div class="l-box">{{ boxText }}</div>
+{% endmacro %}
+
+{% macro boxNoPadding(boxText) %}
+<div class="l-box l-box--no-padding">{{ boxText }}</div>
+{% endmacro %}
+
+{% macro boxNoBorder(boxText) %}
+<div class="l-box l-box--no-border">{{ boxText }}</div>
+{% endmacro %}
+
+{% macro boxSimple(boxText) %}
+<div class="l-box l-box--no-padding l-box--no-border">{{ boxText }}</div>
+{% endmacro %}

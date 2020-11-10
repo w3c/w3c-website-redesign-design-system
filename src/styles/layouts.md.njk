@@ -3,5 +3,50 @@ title: Layouts
 nav: layouts
 layout: content-styles.njk
 ---
+{% import "views/macros/_iframe.njk" as macroExample %}
+{% import "views/macros/layouts/_box.njk" as boxMacros %}
+
 
 <h1>{{ title }}</h1>
+
+## Box
+
+The box layout is a simple container for grouping content within a defined region. It uses the class `.l-box`.
+
+The box layout deliberately treats padding and borders equally on all sides. If your container needs asymmetrical styling, then it's a specific element and not a box.
+
+### Default box
+
+{{ macroExample.showCase('Default box layout', '../demos/box-default.html') }}
+
+```html
+{{ boxMacros.boxDefault('Default box layout') }}
+```
+
+### Box without padding
+
+For a box without padding, use the modifier class `.l-box--no-padding`
+
+{{ macroExample.showCase('Box layout with no padding', '../demos/box-nopadding.html') }}
+
+```html
+{{ boxMacros.boxNoPadding('Box layout with no padding') }}
+```
+
+### Box without border
+
+For a box without a border, use the modifier class `.l-box--no-border`. Because high contrast themes tend to eliminate <code>background-color</code>, this class adds a transparent outline to maintain the box shape. The negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact the overall box size.
+
+{{ macroExample.showCase('Box layout with no border', '../demos/box-noborder.html') }}
+
+```html
+{{ boxMacros.boxNoBorder('Box layout with no border') }}
+```
+
+### Box without padding or border
+
+{{ macroExample.showCase('Box layout with no padding and no border', '../demos/box-simple.html') }}
+
+```html
+{{ boxMacros.boxSimple('Box layout with no padding and no border') }}
+```

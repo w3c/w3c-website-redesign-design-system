@@ -937,6 +937,8 @@ main > * {
 	border: solid 1px;
 	display: block;
 	max-width: 100%;
+	padding: 1rem;
+	width: 100%;
 }
 
 
