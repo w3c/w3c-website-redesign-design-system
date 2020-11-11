@@ -33,7 +33,7 @@ to create a gutter between the `.sidebar` and `.not-sidebar`.
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	margin: rem(-12); /* 1 */
+	margin: -0.75rem; /* 1 */
 }
 
 
@@ -42,7 +42,7 @@ We apply an even, symmetrical margin to `.sidebar` and `.not-sidebar`,
 but halve it to to account for 'doubling up' at the edges.
  */
 .l-sidebar > * > * {
-	margin: rem(12);
+	margin: 0.75rem;
 }
 
 
@@ -72,6 +72,6 @@ a viewport media query.
 
 	flex-basis: 0;
 	flex-grow: 999;
-	min-width: calc(55% - #{rem(24)});
+	min-width: calc(55% - 1.5rem);
 
 }

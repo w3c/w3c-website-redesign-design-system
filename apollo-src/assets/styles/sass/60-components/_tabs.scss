@@ -21,7 +21,7 @@
 		flex-flow: row nowrap;
 		max-width: 100%;
 		overflow-x: auto;
-		padding: 0 rem(25);
+		padding: 0 rem(24);
 		-webkit-overflow-scrolling: touch;
 
 		li {
@@ -32,7 +32,7 @@
 		}
 
 		li + li {
-			margin-left: rem(25);
+			margin-left: rem(24);
 		}
 
 	}
@@ -59,7 +59,7 @@
 
 		@include stack(1rem);
 
-		padding: rem(25);
+		padding: rem(24);
 
 	}
 
