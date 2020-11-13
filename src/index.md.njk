@@ -1,65 +1,8 @@
 ---
 title: Home
 layout: content-main.njk
-
-header_text: Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo.
-footer_text: Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna.
 ---
-{% import "views/macros/_colors.njk" as macroColors %}
-{% import "views/macros/_iframe.njk" as macroExample %}
 
-# Welcome to the LOGO design system
+# Welcome to the W3C design system
 
 This design system documents the styles, components and templates available to use on your website.
-
-```javascript
-var s = "JavaScript syntax highlighting";
-alert(s);
-```
-
-```html
-<ul>
-    <li>List item</li>
-    <li>List item</li>
-    <li>List item</li>
-    <li>List item</li>
-</ul>
-```
-
-```scss
-@mixin stack($measure: 1.5rem) {
-
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-
-	& > * + * {
-
-		margin-top: $measure;
-
-	}
-
-}
-```
-
-{% set colors = [
-        {
-          "sass_variable"  : "brandColor",
-          "color_value" : "#f06d06",
-          "color_notes" : "Our main color."
-
-        },
-        {
-          "sass_variable"  : "brandHighlight",
-          "color_value" : "#d0b000",
-          "color_notes" : "For callouts and highlights."
-        },
-        {
-          "sass_variable"  : "grayDark",
-          "color_value" : "#333333",
-          "color_notes" : "For things like code block backgrounds."
-        }
-      ]
-    %}
-
-{{ macroExample.showCase('This is my iframe title', 'demos/examples.html') }}

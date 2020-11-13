@@ -5,6 +5,7 @@ layout: content-styles.njk
 ---
 {% import "views/macros/_iframe.njk" as macroExample %}
 {% import "views/macros/layouts/_box.njk" as boxMacros %}
+{% import "views/macros/layouts/_center.njk" as centerMacros %}
 
 
 <h1>{{ title }}</h1>
@@ -13,7 +14,7 @@ layout: content-styles.njk
 
 The box layout is a simple container for grouping content within a defined region. It uses the class `.l-box`.
 
-The box layout deliberately treats padding and borders equally on all sides. If your container needs asymmetrical styling, then it's a specific element and not a box.
+The box layout deliberately treats padding and borders equally on all sides. If your container needs asymmetrical styling, then it's a container with a more specific purpose and not a box.
 
 ### Default box
 
@@ -35,7 +36,7 @@ For a box without padding, use the modifier class `.l-box--no-padding`
 
 ### Box without border
 
-For a box without a border, use the modifier class `.l-box--no-border`. Because high contrast themes tend to eliminate <code>background-color</code>, this class adds a transparent outline to maintain the box shape. The negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact the overall box size.
+For a box without a border, use the modifier class `.l-box--no-border`. Because high contrast themes tend to eliminate <code>background-color</code>, this class adds a transparent outline to maintain the box shape. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.
 
 {{ macroExample.showCase('Box layout with no border', '../demos/box-noborder.html') }}
 
@@ -50,3 +51,27 @@ For a box without a border, use the modifier class `.l-box--no-border`. Because 
 ```html
 {{ boxMacros.boxSimple('Box layout with no padding and no border') }}
 ```
+
+## Center
+
+The center layout creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class `.l-center`. Apollo uses this technique on the `main` element (without applying the class, in this instance).
+
+Padding on the sides of the center layout maintains a space between its contents and the edges of the parent container, even when the parent is narrower than the `max-width` of the center layout.
+
+The center layout uses an exception to Apollo's global `box-sizing: border-box;` declaration. It uses `box-sizing: content-box;` to prevent the padding from making the content narrower than intended.
+
+The following example uses an inline style to override the default `max-width`. In practice, you should apply an additional class to override any of the default styles in a specific context.
+
+{{ macroExample.showCase('Center layout inside a box layout', '../demos/center.html') }}
+
+```html
+<div class="l-box l-box--no-padding">
+	<div class="l-center" style="max-width:30rem;">
+		Center layout in action
+	</div>
+</div>
+```
+
+## Cluster
+
+The cluster layout suits any group of elements that differ in length, are liable to wrap and need spacing between them, e.g. lists of tags or groups of buttons. It uses the class `.l-cluster`.
