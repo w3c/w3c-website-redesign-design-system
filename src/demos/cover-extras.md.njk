@@ -1,0 +1,7 @@
+---
+title: Cover layout with optional header and footer
+layout: showcase.njk
+---
+{% import "views/macros/layouts/_cover.njk" as coverMacros %}
+
+{{ coverMacros.coverExtras('The principal content', '"Header" content, e.g. a close button', '"Footer" content') }}

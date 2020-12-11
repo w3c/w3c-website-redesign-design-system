@@ -5,8 +5,6 @@ layout: content-styles.njk
 ---
 {% import "views/macros/_iframe.njk" as macroExample %}
 {% import "views/macros/layouts/_box.njk" as boxMacros %}
-{% import "views/macros/layouts/_center.njk" as centerMacros %}
-
 
 <h1>{{ title }}</h1>
 
@@ -100,3 +98,23 @@ The cluster layout needs an inner container - in the following example it's prov
 	</div>
 </div>
 ```
+
+## Cover
+
+The cover layout creates a container with a minimum height to hold vertically centered content, ideal for "above the fold" hero blocks and sections needing visual prominence. It uses the classes `.l-cover` for the container and `.principal` for the content to be centred.
+
+The following examples use inline styles to specify background and text colors. In practice, you should apply an additional class to override/add to the default styles in a specific context.
+
+### Cover with horizontal centering using a utility class
+
+{{ macroExample.showCase('Cover layout with content horizontally centered with a utility class', '../demos/cover-utility.html') }}
+
+### Cover with a nested center layout for horizontal centering
+
+{{ macroExample.showCase('Cover layout with a nested center layout', '../demos/cover-center.html') }}
+
+### Cover with optional header and footer content
+
+This example uses an inline style to change the default alignment of the "header". In practice, you should use the CSS stylesheet to target the element directly or via a custom class to achieve this.
+
+{{ macroExample.showCase('Cover layout with optional header and footer', '../demos/cover-extras.html') }}
