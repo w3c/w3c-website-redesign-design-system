@@ -140,3 +140,81 @@ This example uses an inline style to change the default alignment of the "header
 	<p>"Footer" content</p>
 </div>
 ```
+
+## Frame
+
+The frame layout is useful for cropping media (images and video) to a specific aspect ratio. It uses the class `.l-frame` and additional modifier classes for pre-defined aspect ratios. These modifier classes determine the amount of vertical padding on the frame, which then acts as a window onto the content inside.
+
+If using `figure` with `figcaption`, make sure to apply the .l-frame class to an inner `picture` or `div` rather than directly to the `figure` to avoid obscuring the `figcaption`.
+
+The following examples use an inline style setting a width, which is purely for the purpose of demonstrating the visual appearance of the frame modifier classes.
+
+### Frame with 16:9 aspect ratio
+
+{{ macroExample.showCase('Frame layout with 16:9 aspect ratio', '../demos/frame-169.html') }}
+
+```html
+<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
+	<figure>
+		<div class="l-frame l-frame--16-9">
+			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+		</div>
+		<figcaption>An example of the 16:9 frame modifier</figcaption>
+	</figure>
+</div>
+```
+
+### Frame with 3:2 aspect ratio
+
+{{ macroExample.showCase('Frame layout with 3:2 aspect ratio', '../demos/frame-32.html') }}
+
+```html
+<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
+	<figure>
+		<div class="l-frame l-frame--3-2">
+			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+		</div>
+		<figcaption>An example of the 3:2 frame modifier</figcaption>
+	</figure>
+</div>
+```
+
+### Frame with 4:3 aspect ratio
+
+{{ macroExample.showCase('Frame layout with 4:3 aspect ratio', '../demos/frame-43.html') }}
+
+```html
+<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
+	<figure>
+		<div class="l-frame l-frame--4-3">
+			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+		</div>
+		<figcaption>An example of the 4:3 frame modifier</figcaption>
+	</figure>
+</div>
+```
+
+### Frame with square aspect ratio
+
+{{ macroExample.showCase('Frame layout with square aspect ratio', '../demos/frame-square.html') }}
+
+```html
+<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
+	<figure>
+		<div class="l-frame l-frame--square">
+			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
+		</div>
+		<figcaption>An example of the square frame modifier</figcaption>
+	</figure>
+</div>
+```
+
+### Internet Explorer/Edge considerations
+
+The default frame layout uses `object-fit: cover` for images and videos. This is not supported in Internet Explorer or Edge prior to version 16 and in Edge 16-18 it is only supported on images. However, the Chromium Edge browser, which does support object-fit, is now available to systems as far back as Windows 7.
+
+For images, a JavaScript workaround is available that swaps the image for a background-image instead, although this removes the accessibility benefits offered by images. Alternatively, you may prefer to forgo `object-fit` and adapt your instance of the frame to rely on absolute positioning and hiding any overflow.
+
+### Image credit
+
+Photo by [Steve Johnson](https://unsplash.com/photos/-zASKXkwkIY) on [Unsplash](https://unsplash.com/)
