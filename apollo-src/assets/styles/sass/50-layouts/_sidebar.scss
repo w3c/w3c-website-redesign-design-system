@@ -75,3 +75,13 @@ a viewport media query.
 	min-width: calc(55% - 1.5rem);
 
 }
+
+
+/**
+A modifier class that removes the gutter effect
+between the `.sidebar` and `.not-sidebar`.
+ */
+.l-sidebar--tight > *,
+.l-sidebar--tight > * > * {
+	margin: 0;
+}
