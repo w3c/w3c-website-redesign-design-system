@@ -5,8 +5,15 @@ layout: content-styles.njk
 ---
 {% import "views/macros/_iframe.njk" as macroExample %}
 {% import "views/macros/layouts/_box.njk" as boxMacros %}
+{% import "views/macros/layouts/_center.njk" as centerMacros %}
+{% import "views/macros/layouts/_cluster.njk" as clusterMacros %}
+{% import "views/macros/layouts/_cover.njk" as coverMacros %}
+{% import "views/macros/layouts/_frame.njk" as frameMacros %}
+{% import "views/macros/layouts/_sidebar.njk" as sidebarMacros %}
 
 <h1>{{ title }}</h1>
+
+Here you will find examples of the basic layout types, which can be combined and customised to make a variety of components and templates.
 
 ## Box
 
@@ -63,11 +70,7 @@ The following example uses an inline style to override the default `max-width`. 
 {{ macroExample.showCase('Center layout inside a box layout', '../demos/center.html') }}
 
 ```html
-<div class="l-box l-box--no-padding">
-	<div class="l-center" style="max-width:30rem;">
-		Center layout in action
-	</div>
-</div>
+{{ centerMacros.centerLayout('Center layout in action') }}
 ```
 
 ## Cluster
@@ -79,24 +82,7 @@ The cluster layout needs an inner container - in the following example it's prov
 {{ macroExample.showCase('Cluster layout', '../demos/cluster.html') }}
 
 ```html
-<div class="l-box l-box--no-padding l-box--no-border">
-	<div class="l-center">
-		<div class="l-cluster">
-			<ul class="clean-list">
-				<li><a href="#1">Item One</a></li>
-				<li><a href="#2">Item Two</a></li>
-				<li><a href="#3">Item Three</a></li>
-				<li><a href="#4">Item Four</a></li>
-				<li><a href="#5">Item Five</a></li>
-				<li><a href="#6">Item Six</a></li>
-				<li><a href="#7">Item Seven</a></li>
-				<li><a href="#8">Item Eight</a></li>
-				<li><a href="#9">Item Nine</a></li>
-				<li><a href="#10">Item Ten</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+{{ clusterMacros.clusterLayout() }}
 ```
 
 ## Cover
@@ -110,9 +96,7 @@ The following examples use inline styles to specify background and text colors. 
 {{ macroExample.showCase('Cover layout with content horizontally centered with a utility class', '../demos/cover-utility.html') }}
 
 ```html
-<div class="l-cover" style="background-color: #000; color: #fff;">
-	<h1 class="principal txt-venus u-center">Here is the principal content</h1>
-</div>
+{{ coverMacros.coverUtility('Here is the principal content') }}
 ```
 
 ### Cover with a nested center layout for horizontal centering
@@ -120,11 +104,7 @@ The following examples use inline styles to specify background and text colors. 
 {{ macroExample.showCase('Cover layout with a nested center layout', '../demos/cover-center.html') }}
 
 ```html
-<div class="l-cover" style="background-color: #000; color: #fff;">
-	<div class="l-center principal">
-		<h1 class="txt-venus">Here is the principal content</h1>
-	</div>
-</div>
+{{ coverMacros.coverCenter('Here is the principal content') }}
 ```
 
 ### Cover with optional header and footer content
@@ -134,11 +114,7 @@ This example uses an inline style to change the default alignment of the "header
 {{ macroExample.showCase('Cover layout with optional header and footer', '../demos/cover-extras.html') }}
 
 ```html
-<div class="l-cover" style="background-color: #000; color: #fff;">
-	<p style="align-self: flex-end;">"Header" content, e.g. a close button</p>
-	<h1 class="principal txt-venus u-center">The principal content</h1>
-	<p>"Footer" content</p>
-</div>
+{{ coverMacros.coverExtras('The principal content', '"Header" content, e.g. a close button', '"Footer" content') }}
 ```
 
 ## Frame
@@ -147,21 +123,14 @@ The frame layout is useful for cropping media (images and video) to a specific a
 
 If using `figure` with `figcaption`, make sure to apply the .l-frame class to an inner `picture` or `div` rather than directly to the `figure` to avoid obscuring the `figcaption`.
 
-The following examples use an inline style setting a width, which is purely for the purpose of demonstrating the visual appearance of the frame modifier classes.
+The following examples use an inline style setting a width on a parent container using the box layout. This is purely for the purpose of demonstrating the visual appearance of the frame modifier classes.
 
 ### Frame with 16:9 aspect ratio
 
 {{ macroExample.showCase('Frame layout with 16:9 aspect ratio', '../demos/frame-169.html') }}
 
 ```html
-<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
-	<figure>
-		<div class="l-frame l-frame--16-9">
-			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
-		</div>
-		<figcaption>An example of the 16:9 frame modifier</figcaption>
-	</figure>
-</div>
+{{ frameMacros.frame169('An example of the 16:9 frame modifier') }}
 ```
 
 ### Frame with 3:2 aspect ratio
@@ -169,14 +138,7 @@ The following examples use an inline style setting a width, which is purely for 
 {{ macroExample.showCase('Frame layout with 3:2 aspect ratio', '../demos/frame-32.html') }}
 
 ```html
-<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
-	<figure>
-		<div class="l-frame l-frame--3-2">
-			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
-		</div>
-		<figcaption>An example of the 3:2 frame modifier</figcaption>
-	</figure>
-</div>
+{{ frameMacros.frame32('An example of the 3:2 frame modifier') }}
 ```
 
 ### Frame with 4:3 aspect ratio
@@ -184,14 +146,7 @@ The following examples use an inline style setting a width, which is purely for 
 {{ macroExample.showCase('Frame layout with 4:3 aspect ratio', '../demos/frame-43.html') }}
 
 ```html
-<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
-	<figure>
-		<div class="l-frame l-frame--4-3">
-			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
-		</div>
-		<figcaption>An example of the 4:3 frame modifier</figcaption>
-	</figure>
-</div>
+{{ frameMacros.frame43('An example of the 4:3 frame modifier') }}
 ```
 
 ### Frame with square aspect ratio
@@ -199,14 +154,7 @@ The following examples use an inline style setting a width, which is purely for 
 {{ macroExample.showCase('Frame layout with square aspect ratio', '../demos/frame-square.html') }}
 
 ```html
-<div class="l-box l-box--no-border l-box--no-padding" style="width: 20rem;">
-	<figure>
-		<div class="l-frame l-frame--square">
-			<img src="../assets/apollo-dist/assets/images/steve-johnson--zASKXkwkIY-unsplash.jpg" alt="Multicolored abstract painting">
-		</div>
-		<figcaption>An example of the square frame modifier</figcaption>
-	</figure>
-</div>
+{{ frameMacros.frameSquare('An example of the square frame modifier') }}
 ```
 
 ### Internet Explorer/Edge considerations
@@ -218,3 +166,41 @@ For images, a JavaScript workaround is available that swaps the image for a back
 ### Image credit
 
 Photo by [Steve Johnson](https://unsplash.com/photos/-zASKXkwkIY) on [Unsplash](https://unsplash.com/)
+
+## Sidebar
+
+The sidebar layout creates two content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is narrower than the other, acting as a "sidebar".
+
+The point at which the content panels site side-by-side horizontally is determined by setting a `flex-basis` on the sidebar panel and a `min-width` on the larger panel. Viewport media queries are not required, so the sidebar layout will nest nicely inside of other containers.
+
+The following examples use inline styles setting background colors, which is purely for the purpose of demonstrating the visual appearance of the sidebar layout.
+
+### Basic sidebar
+
+Notice that the panel content is not spaced from the panel edges in this example. If we used padding to achieve this it would cause the flexbox layout to break.
+
+{{ macroExample.showCase('Basic sidebar layout', '../demos/sidebar-basic.html') }}
+
+```html
+{{ sidebarMacros.sidebarBasic('Wide panel', 'Narrow "sidebar" panel') }}
+```
+
+### Sidebar with nested box layouts for spacing content
+
+Using a box layout inside the panels allows us to space content away from the edges.
+
+{{ macroExample.showCase('Basic sidebar layout', '../demos/sidebar-spaced.html') }}
+
+```html
+{{ sidebarMacros.sidebarBox('Wide panel', 'Narrow "sidebar" panel') }}
+```
+
+### Sidebar layout without gutter spacing
+
+This uses the modifier class `.l-sidebar--tight` to remove margins.
+
+{{ macroExample.showCase('Sidebar layout without gutter spacing', '../demos/sidebar-tight.html') }}
+
+```html
+{{ sidebarMacros.sidebarTight('Wide panel', 'Narrow "sidebar" panel') }}
+```

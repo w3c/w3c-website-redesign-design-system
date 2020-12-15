@@ -1,0 +1,34 @@
+{% macro sidebarBasic(mainText,sidebarText) %}
+<div class="l-sidebar">
+	<div>
+		<div class="not-sidebar" style="background-color: snow;">{{ mainText }}</div>
+		<div class="sidebar" style="background-color: #ccc;">{{ sidebarText }}</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro sidebarBox(mainText,sidebarText) %}
+<div class="l-sidebar">
+	<div>
+		<div class="not-sidebar" style="background-color: snow;">
+			<div class="l-box l-box--no-border">{{ mainText }}</div>
+		</div>
+		<div class="sidebar" style="background-color: silver;">
+			<div class="l-box l-box--no-border">{{ sidebarText }}</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
+
+{% macro sidebarTight(mainText,sidebarText) %}
+<div class="l-sidebar l-sidebar--tight">
+	<div>
+		<div class="not-sidebar" style="background-color: snow;">
+			<div class="l-box l-box--no-border">{{ mainText }}</div>
+		</div>
+		<div class="sidebar" style="background-color: silver;">
+			<div class="l-box l-box--no-border">{{ sidebarText }}</div>
+		</div>
+	</div>
+</div>
+{% endmacro %}
