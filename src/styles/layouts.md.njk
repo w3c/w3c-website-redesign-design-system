@@ -10,6 +10,7 @@ layout: content-styles.njk
 {% import "views/macros/layouts/_cover.njk" as coverMacros %}
 {% import "views/macros/layouts/_frame.njk" as frameMacros %}
 {% import "views/macros/layouts/_sidebar.njk" as sidebarMacros %}
+{% import "views/macros/layouts/_switcher.njk" as switcherMacros %}
 
 <h1>{{ title }}</h1>
 
@@ -171,13 +172,13 @@ Photo by [Steve Johnson](https://unsplash.com/photos/-zASKXkwkIY) on [Unsplash](
 
 The sidebar layout creates two content panels inside a containing element. These two panels stack vertically, until there is enough horizontal space for them to sit alongside each other. One content panel is narrower than the other, acting as a "sidebar".
 
-The point at which the content panels site side-by-side horizontally is determined by setting a `flex-basis` on the sidebar panel and a `min-width` on the larger panel. Viewport media queries are not required, so the sidebar layout will nest nicely inside of other containers.
+The sidebar layout needs an inner container to hold the two panels. The point at which the panels sit side-by-side horizontally is determined by a `flex-basis` property on the narrower panel and a `min-width` on the wider panel. No viewport media queries are used, so the sidebar layout will nest nicely inside of other containers.
 
 The following examples use inline styles setting background colors, which is purely for the purpose of demonstrating the visual appearance of the sidebar layout.
 
 ### Basic sidebar
 
-Notice that the panel content is not spaced from the panel edges in this example. If we used padding to achieve this it would cause the flexbox layout to break.
+Notice that there is no space between the panel content, and the panel edges in this example. If we used padding to achieve this it would cause the flexbox layout to break.
 
 {{ macroExample.showCase('Basic sidebar layout', '../demos/sidebar-basic.html') }}
 
@@ -214,3 +215,24 @@ We can opt to not specify a width on the narrow "sidebar" panel (by not declarin
 ```html
 {{ sidebarMacros.sidebarIntrinsic() }}
 ```
+
+## Switcher
+
+The switcher layout switches a container with Flexbox between a horizontal and a vertical direction at a given, container-based breakpoint. As with the cluster and sidebar layouts, an inner container is needed to hold the switcher items. It's a good choice for situations where each child item should be considered equal.
+
+ No viewport media queries are used, so it will nest nicely inside of other containers.
+
+{{ macroExample.showCase('Switcher layout', '../demos/switcher.html') }}
+
+```html
+{{ switcherMacros.switcherLayout('Item 1', 'Item 2', 'Item 3') }}
+```
+
+Take note of the following when customising the default switcher layout:
+
+- When the flex container (the inner container holding the switcher items) is less than 600px wide, child items sit vertically. Otherwise, child items sit horizontally. This can be overridden by applying an additional class.
+- The number of columns in a row is two. This can be overridden by adjusting the `min-width` percentage of the child items (the default value is 50%).
+
+### A consideration for Internet Explorer 11
+
+There must be no padding on the switcher child items themselves, otherwise the layout will break. To space content away from the edges, use nested elements with margin or padding. The preceding example uses a nested box layout.

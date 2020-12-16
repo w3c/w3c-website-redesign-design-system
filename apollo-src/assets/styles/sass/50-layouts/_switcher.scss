@@ -55,8 +55,8 @@ The flex children.
 
 3. Determines how many items will be in a row in the horizontal configuration
 
-4. The 600 value matches the desired breakpoint value, and is the width
-of the columns' parent container at the point when the switch will happen.
+4. The 600 value matches the desired breakpoint value, and is equal to the width
+of the direct child of `.l-switcher` at the point when the switch will happen.
 This calculation will create a value that's either bigger than the max-width or
 smaller than the min-width, so that either of these properties is applied instead.
  */
