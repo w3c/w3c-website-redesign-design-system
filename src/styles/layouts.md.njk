@@ -195,12 +195,22 @@ Using a box layout inside the panels allows us to space content away from the ed
 {{ sidebarMacros.sidebarBox('Wide panel', 'Narrow "sidebar" panel') }}
 ```
 
-### Sidebar layout without gutter spacing
+### Sidebar without gutter spacing
 
 This uses the modifier class `.l-sidebar--tight` to remove margins.
 
-{{ macroExample.showCase('Sidebar layout without gutter spacing', '../demos/sidebar-tight.html') }}
+{{ macroExample.showCase('Sidebar without gutter spacing', '../demos/sidebar-tight.html') }}
 
 ```html
 {{ sidebarMacros.sidebarTight('Wide panel', 'Narrow "sidebar" panel') }}
+```
+
+### Using intrinsic content width for the sidebar
+
+We can opt to not specify a width on the narrow "sidebar" panel (by not declaring a `flex-basis` value) and let the content of the sidebar determine its width. This example uses inline styles to demonstrate this effect. In practice, you should apply an additional class to override any of the default styles in a specific context.
+
+{{ macroExample.showCase('Sidebar with intrinsic width', '../demos/sidebar-intrinsic.html') }}
+
+```html
+{{ sidebarMacros.sidebarIntrinsic() }}
 ```

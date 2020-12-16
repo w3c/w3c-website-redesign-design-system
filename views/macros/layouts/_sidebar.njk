@@ -32,3 +32,12 @@
 	</div>
 </div>
 {% endmacro %}
+
+{% macro sidebarIntrinsic() %}
+<div class="l-sidebar l-sidebar--tight">
+	<form onsubmit="return false;">
+		<input type="text" class="not-sidebar" style="min-width: 70%;">
+		<button type="submit" style="flex-grow: 1;">Search</button>
+	</form>
+</div>
+{% endmacro %}
