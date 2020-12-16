@@ -85,3 +85,7 @@ between the `.sidebar` and `.not-sidebar`.
 .l-sidebar--tight > * > * {
 	margin: 0;
 }
+
+.l-sidebar--tight .not-sidebar {
+	min-width: calc(55% - 0rem);
+}
