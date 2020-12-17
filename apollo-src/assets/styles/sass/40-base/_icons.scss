@@ -27,7 +27,11 @@ svg.icon {
 
 }
 
-svg.icon--larger {
+/**
+Use this class on the SVG if the design calls for an inline
+icon that is distinctly larger than the text.
+ */
+svg.icon--large {
 
 	height: rem(35);
 	width: rem(35);
@@ -51,6 +55,10 @@ Pay attention to whether the icon is before the text or after.
 
 }
 
+/**
+Use this class on the SVG's parent if the design calls for an inline
+icon that is distinctly larger than the text.
+ */
 .with-icon-large {
 
 	align-items: center;
