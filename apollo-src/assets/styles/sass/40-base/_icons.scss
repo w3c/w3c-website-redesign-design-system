@@ -43,8 +43,8 @@ Pay attention to whether the icon is before the text or after.
 2. Logical property creates appropriate spacing irrespective of text direction
  */
 
-.with-icon--before,
-.with-icon--after {
+.with-icon--first,
+.with-icon--last {
 
 	align-items: baseline;
 	display: inline-flex;
@@ -59,7 +59,7 @@ Pay attention to whether the icon is before the text or after.
 
 [dir="ltr"] {
 
-	.with-icon--before {
+	.with-icon--first {
 
 		.icon {
 
@@ -76,7 +76,7 @@ Pay attention to whether the icon is before the text or after.
 
 	}
 
-	.with-icon--after {
+	.with-icon--last {
 
 		.icon {
 
@@ -97,7 +97,7 @@ Pay attention to whether the icon is before the text or after.
 
 [dir="rtl"] {
 
-	.with-icon--before {
+	.with-icon--first {
 
 		.icon {
 
@@ -114,7 +114,7 @@ Pay attention to whether the icon is before the text or after.
 
 	}
 
-	.with-icon--after {
+	.with-icon--last {
 
 		.icon {
 
