@@ -71,7 +71,7 @@ The deployment clones the relevant branch to your local machine within the path
 
 `/.deployer`  
 
-It then runs the required build commands and then deploys the built site to the server
+It then runs the required build commands and then deploys the built site to the server. Remember to run `nvm use` if starting a new terminal session prior to running the deployment command.
 
 Deploy to development
 
