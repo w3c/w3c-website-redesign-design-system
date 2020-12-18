@@ -1,0 +1,37 @@
+---
+title: Typography
+nav: typography
+layout: content-styles.njk
+---
+{% import "views/macros/_iframe.njk" as macroExample %}
+{% import "views/macros/_headings.njk" as headingMacros %}
+
+<h1>{{ title }}</h1>
+
+## Font
+
+Apollo uses the [Font Face Observer](https://fontfaceobserver.com/) web font loader to optimise font loading and prevent a flash of invisible text (FOIT).
+
+The default font stack is limited to a choice of system fonts similar to the desired web font. Font Face Observer detects when the `@font-face` files are loaded and adds the `.fonts-loaded` class to the `html` root element, at which point the CSS swaps out the default fonts for the web font.
+
+The web font chosen for this design system is [Noto Sans from Google](https://www.google.com/get/noto/).
+
+## Headings
+
+Use the appropriate semantic `<h#>` markup for headings, and use one of the following classes to apply the desired visual styling. Check that your headings are ordered hierarchically, with `<h2>` following `<h1>`, and so on.
+
+{{ macroExample.showCase('Heading styles', '../demos/headings.html') }}
+
+```html
+{{ headingMacros.txtMercury('txt-mercury') }}
+
+{{ headingMacros.txtVenus('txt-venus') }}
+
+{{ headingMacros.txtEarth('txt-earth') }}
+
+{{ headingMacros.txtMars('txt-mars') }}
+
+{{ headingMacros.txtJupiter('txt-jupiter') }}
+
+{{ headingMacros.txtSaturn('txt-saturn') }}
+```

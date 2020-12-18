@@ -42,7 +42,7 @@ For a box without padding, use the modifier class `.l-box--no-padding`
 
 ### Box without border
 
-For a box without a border, use the modifier class `.l-box--no-border`. Because high contrast themes tend to eliminate <code>background-color</code>, this class adds a transparent outline to maintain the box shape. Negative <code>outline-offset</code> moves the outline inside the box perimeter so that it doesn't impact its overall size.
+For a box without a border, use the modifier class `.l-box--no-border`. Because high contrast themes tend to eliminate `background-color`, this class adds a transparent outline to maintain the box shape. Negative `outline-offset` moves the outline inside the box perimeter so that it doesn't impact its overall size.
 
 {{ macroExample.showCase('Box layout with no border', '../demos/box-noborder.html') }}
 
@@ -60,7 +60,7 @@ For a box without a border, use the modifier class `.l-box--no-border`. Because 
 
 ## Center
 
-The center layout creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class `.l-center`. Apollo uses this technique on the `main` element (without applying the class, in this instance).
+The center layout creates a vertical strip of content inside a given container element, with equal spacing on either side. It uses the class `.l-center`. Apollo uses this technique on the `<main>` element (without applying the class, in this instance).
 
 Padding on the sides of the center layout maintains a space between its contents and the edges of the parent container, even when the parent is narrower than the `max-width` of the center layout.
 
@@ -78,7 +78,7 @@ The following example uses an inline style to override the default `max-width`. 
 
 The cluster layout suits any group of elements that differ in length, are liable to wrap and need even spacing between them, e.g. lists of tags or groups of buttons. It uses the class `.l-cluster`.
 
-The cluster layout needs an inner container - in the following example it's provided by the `ul`. The cluster items - `li` in this example - sit within this container. Each item has a margin on all sides. Their parent container has a negative margin of the same size as the cluster items. This creates the even spacing between items. `overflow: hidden;` is used to tidy up the edges.
+The cluster layout needs an inner container - in the following example it's provided by the `<ul>`. The cluster items - `<li>` in this example - sit within this container. Each item has a margin on all sides. Their parent container has a negative margin of the same size as the cluster items. This creates the even spacing between items. `overflow: hidden;` is used to tidy up the edges.
 
 {{ macroExample.showCase('Cluster layout', '../demos/cluster.html') }}
 
@@ -122,7 +122,7 @@ This example uses an inline style to change the default alignment of the "header
 
 The frame layout is useful for cropping media (images and video) to a specific aspect ratio. It uses the class `.l-frame` and additional modifier classes for pre-defined aspect ratios. These modifier classes determine the amount of vertical padding on the frame, which then acts as a window onto the content inside.
 
-If using `figure` with `figcaption`, make sure to apply the .l-frame class to an inner `picture` or `div` rather than directly to the `figure` to avoid obscuring the `figcaption`.
+If using `<figure>` with `<figcaption>`, make sure to apply the .l-frame class to an inner `<picture>` or `<div>` rather than directly to the `figure` to avoid obscuring the `<figcaption>`.
 
 The following examples use an inline style setting a width on a parent container using the box layout. This is purely for the purpose of demonstrating the visual appearance of the frame modifier classes.
 
@@ -188,7 +188,7 @@ Notice that there is no space between the panel content, and the panel edges in 
 
 ### Sidebar with nested box layouts for spacing content
 
-Using a box layout inside the panels allows us to space content away from the edges.
+Nesting a box layout inside the panels allows us to space content away from the edges.
 
 {{ macroExample.showCase('Basic sidebar layout', '../demos/sidebar-spaced.html') }}
 
@@ -220,7 +220,7 @@ We can opt to not specify a width on the narrow "sidebar" panel (by not declarin
 
 The switcher layout switches a container with Flexbox between a horizontal and a vertical direction at a given, container-based breakpoint. As with the cluster and sidebar layouts, an inner container is needed to hold the switcher items. It's a good choice for situations where each child item should be considered equal.
 
- No viewport media queries are used, so it will nest nicely inside of other containers.
+ No viewport media queries are used, so it will nest nicely inside other containers.
 
 {{ macroExample.showCase('Switcher layout', '../demos/switcher.html') }}
 
