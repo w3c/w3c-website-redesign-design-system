@@ -508,6 +508,14 @@ code {
 	color: #b30000;
 }
 
+kbd {
+	background-color: #eaeaea;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+	display: inline-block;
+	line-height: normal;
+	padding: .1em .2em;
+}
 
 a:not([class]) {
 	border: 0;

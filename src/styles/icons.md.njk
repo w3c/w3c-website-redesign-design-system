@@ -1,0 +1,80 @@
+---
+title: Icons
+nav: icons
+layout: content-styles.njk
+---
+{% import "views/macros/_iframe.njk" as macroExample %}
+{% import "views/macros/_icons.njk" as iconMacros %}
+
+<h1>{{ title }}</h1>
+
+Iconography is from the FontAwesome 5 icon library. Inline SVGs are used because:
+
+- it eliminates a separate HTTP request
+- SVGs used as background images may not show for high contrast mode users
+- we can use CSS to change the icon color.
+
+The default `.icon` class uses the relative `em` unit and is ideal for using icons inline with text, adapting the icon size to the font size of the parent element. The icon can easily sit before or after the text, using simple text spacing.
+
+{{ macroExample.showCase('Default icon', '../demos/icon-default.html') }}
+
+```html
+{{ iconMacros.iconDefault('Cat') }}
+```
+
+If there is a need to control the size of the spacing between an icon and text, add the `.with-icon-first` or `.with-icon-last` class to the parent element. This applies `inline-flex` and alignment styles to help things line up nicely, and uses margin for spacing. Choose the class which reflects the correct order of icon and text.
+
+{{ macroExample.showCase('Inline icon with additional spacing', '../demos/icon-spaced.html') }}
+
+```html
+{{ iconMacros.iconSpaced('Cat') }}
+```
+
+If there is a need for an inline icon that is distinctly larger than the default text, use `.with-icon-large` on the parent element and add the modifier class `.icon--large` to the SVG. The `.icon--large` class uses the `rem` unit to specify a size relative to the root font size.
+
+{{ macroExample.showCase('Large inline icon', '../demos/icon-large.html') }}
+
+```html
+{{ iconMacros.iconLarge('Cat') }}
+```
+
+## SVG accessibility
+
+In all the preceding examples the SVG has acted as a decorative item, and uses the following markup pattern, which hides the SVG from screen readers and prevents the <kbd>Tab</kbd> key from navigating into the SVG in Internet Explorer:
+
+```html
+<svg aria-hidden="true" focusable="false" ... >
+  <!-- ... -->
+</svg>
+```
+
+This pattern is robust for use within links and buttons where there is also a visible text label. Icons with text labels are less ambiguous to users; if using an icon without a visible text label, the following markup pattern should be used to provide accessible names:
+
+```html
+<button>
+  <svg aria-hidden="true" focusable="false"><!--...--></svg>
+  <span class="visuallyhidden">Search</span>
+</button>
+
+<a href="/search">
+  <svg aria-hidden="true" focusable="false"><!--...--></svg>
+  <span class="visuallyhidden">Search</span>
+</a>
+```
+
+### Non-decorative SVG accessibility
+
+If an SVG is used in a context where it adds meaning to the content then it is not being used as an icon, and requires a different markup pattern:
+
+```html
+<svg role="img" focusable="false">
+  <title>Accessible Name</title>
+  <!--...-->
+</svg>
+```
+
+Note that `path` and any other direct child elements of the SVG should receive an `aria-hidden="true"` if they contain no information that should be made accessible.
+
+### Reference
+
+[Contextually Marking up accessible images and SVGs](https://www.scottohara.me/blog/2019/05/22/contextual-images-svgs-and-a11y.html), by Scott O'Hara
