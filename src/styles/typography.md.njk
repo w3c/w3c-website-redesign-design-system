@@ -4,6 +4,7 @@ nav: typography
 layout: content-styles.njk
 ---
 {% import "views/macros/_iframe.njk" as macroExample %}
+{% import "views/macros/_fonts.njk" as fontMacros %}
 {% import "views/macros/_headings.njk" as headingMacros %}
 
 <h1>{{ title }}</h1>
@@ -18,20 +19,43 @@ The web font chosen for this design system is [Noto Sans from Google](https://ww
 
 ## Headings
 
-Use the appropriate semantic `<h#>` markup for headings, and use one of the following classes to apply the desired visual styling. Check that your headings are ordered hierarchically, with `<h2>` following `<h1>`, and so on.
+Use the appropriate semantic `<h#>` to mark up headings. Check that headings are ordered hierarchically, without missing any numbers: `<h2>` is the next level down from `<h1>`, `<h3>` is the next level down from `<h2>`, etc.
+
+All headings start off with a font size of `1.25rem`, slightly larger than the default body text. Further styles are introduced through a suite of [font override classes](#font-override-classes). These classes are tied to [mixins](https://sass-lang.com/documentation/at-rules/mixin) that set combinations of font size and line-height (and sometimes font weight and color), which have been designed to work together.
+
+This approach reinforces the use of the correct semantic elements and provides the freedom to apply whatever visual styling is desired.
+
+The following example shows the recommended classes to use for `<h1>` - `<h6>`. Note that the classes `.txt-mercury`, `.txt-venus` and `.txt-earth` resize at different screen sizes.
 
 {{ macroExample.showCase('Heading styles', '../demos/headings.html') }}
 
 ```html
 {{ headingMacros.txtMercury('txt-mercury') }}
-
 {{ headingMacros.txtVenus('txt-venus') }}
-
 {{ headingMacros.txtEarth('txt-earth') }}
-
 {{ headingMacros.txtMars('txt-mars') }}
-
 {{ headingMacros.txtJupiter('txt-jupiter') }}
-
 {{ headingMacros.txtSaturn('txt-saturn') }}
+```
+
+## Paragraphs
+
+The default paragraph font size is `1rem`, equivalent to 16px browser default.
+
+## Font override classes
+
+There are 9 classes with pre-defined font style treatments in the design system. Some of these are utilized in the [headings](#headings) section above, but here is a complete list with examples. Note that the classes `.txt-mercury`, `.txt-venus` and `.txt-earth` resize at different screen sizes.
+
+{{ macroExample.showCase('Font override classes', '../demos/fonts.html') }}
+
+```html
+{{ fontMacros.txtMercury('txt-mercury') }}
+{{ fontMacros.txtVenus('txt-venus') }}
+{{ fontMacros.txtEarth('txt-earth') }}
+{{ fontMacros.txtMars('txt-mars') }}
+{{ fontMacros.txtJupiter('txt-jupiter') }}
+{{ fontMacros.txtSaturn('txt-saturn') }}
+{{ fontMacros.txtPluto('txt-pluto') }}
+{{ fontMacros.txtBodyAlt('txt-body-alt') }}
+{{ fontMacros.txtEris('txt-eris') }}
 ```

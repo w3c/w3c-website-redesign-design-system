@@ -67,7 +67,7 @@
 
 @mixin txt-saturn {
 
-	font-weight: 600;
+	font-weight: $emphasis;
 	line-height: calc(22 / 16);
 
 }
