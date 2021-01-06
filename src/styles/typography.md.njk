@@ -6,6 +6,7 @@ layout: content-styles.njk
 {% import "views/macros/_iframe.njk" as macroExample %}
 {% import "views/macros/_fonts.njk" as fontMacros %}
 {% import "views/macros/_headings.njk" as headingMacros %}
+{% import "views/macros/_links.njk" as linkMacros %}
 
 <h1>{{ title }}</h1>
 
@@ -58,4 +59,16 @@ There are 9 classes with pre-defined font style treatments in the design system.
 {{ fontMacros.txtPluto('txt-pluto') }}
 {{ fontMacros.txtBodyAlt('txt-body-alt') }}
 {{ fontMacros.txtEris('txt-eris') }}
+```
+
+## Links
+
+Links are blue and underlined by default. If your link is at the very end of a sentence, make sure that the full stop is not included within the linked text.
+
+The underline is generated via the `::after` pseudo-element, for internationalization concerns. The default `text-decoration: underline` style does not work well with certain non-Latin characters. Browser support for the `::after` pseudo-element is better than for `text-decoration-skip-ink`, which is not supported at all in Safari at time of writing.
+
+{{ macroExample.showCase('Links', '../demos/links.html') }}
+
+```html
+{{ linkMacros.linkDefault('Text link') }}
 ```
