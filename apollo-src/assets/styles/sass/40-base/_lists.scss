@@ -26,6 +26,12 @@ ol:not([class]) {
 
 }
 
+ul:not([class]) {
+
+	padding-inline-start: 2.4em;
+
+}
+
 ol:not([class]) {
 
 	counter-reset: custom;
