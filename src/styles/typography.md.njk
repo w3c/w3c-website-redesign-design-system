@@ -7,6 +7,8 @@ layout: content-styles.njk
 {% import "views/macros/_fonts.njk" as fontMacros %}
 {% import "views/macros/_headings.njk" as headingMacros %}
 {% import "views/macros/_links.njk" as linkMacros %}
+{% import "views/macros/lists/_unordered.njk" as listBullet %}
+{% import "views/macros/lists/_ordered.njk" as listNumber %}
 
 <h1>{{ title }}</h1>
 
@@ -81,4 +83,28 @@ If there is a definite need for a link to open in a new tab, include the words '
 
 ```html
 {{ linkMacros.linkTab('Text link (opens in new tab)') }}
+```
+
+## Lists
+
+Use lists to make blocks of text easier to read, and to break information into manageable chunks.
+
+### Bulleted lists
+
+Unordered lists without any classes are styled with bullets.
+
+{{ macroExample.showCase('Default unordered list', '../demos/list-unordered.html') }}
+
+```html
+{{ listBullet.listUnordered() }}
+```
+
+### Numbered lists
+
+Use numbered lists when the order of the items is important.
+
+{{ macroExample.showCase('Default ordered list', '../demos/list-ordered.html') }}
+
+```html
+{{ listNumber.listOrdered() }}
 ```
