@@ -1,10 +1,16 @@
-import {stickyColumnHead} from "./main/tableheaders";
+import {accountMenu} from "./main/account-menu";
+import {cardEnhancement} from "./main/cards";
+import {collapsibleCards} from "./main/collapsible-cards";
+import {collapsibleCheckboxes} from "./main/collapsible-checkboxes";
 import {collapsibles} from "./main/collapsibles";
+import {disclosureWidget} from "./main/disclosure-widget";
+import {formErrorSummary} from "./main/form-error-summary";
 import {navigation} from "./main/navigation";
+import {responsiveTables} from "./main/responsive-tables";
 
-stickyColumnHead();
+responsiveTables();
 
-// Tie the stickyTableHead function to a resize event, and debounce for performance
+// Tie the responsiveTables function to a resize event, and debounce for performance
 var timeout;
 
 window.addEventListener('resize', function (event) {
@@ -18,7 +24,7 @@ window.addEventListener('resize', function (event) {
 			timeout = null;
 
 			// Run our resize functions
-			stickyColumnHead();
+			responsiveTables();
 
 		}, 66);
 	}

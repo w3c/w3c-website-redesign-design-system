@@ -17,24 +17,27 @@ SVG icons are sized relative to font size, thanks to the em unit.
 1. When the cap unit is supported this will make it easier to match icon
 size to text size.
  */
-svg.icon {
+.icon {
 
-	height: 0.75em;
+	height: 1em;
 	height: 1cap; /* 1 */
 	vertical-align: baseline;
-	width: 0.75em;
+	width: 1em;
 	width: 1cap; /* 1 */
 
 }
 
-/**
-Use this class on the SVG if there is a need for an
-inline icon that is distinctly larger than the text.
- */
-svg.icon--large {
+.icon--larger {
 
-	height: rem(35);
-	width: rem(35);
+	height: rem(30);
+	width: rem(30);
+
+}
+
+.icon--beta {
+
+	height: rem(39);
+	width: rem(61);
 
 }
 
@@ -42,25 +45,21 @@ svg.icon--large {
 /**
 Use the `with-icon` class on the SVG's parent, if there
 is a need to specify the spacing between text and icon.
-Pay attention to whether the icon is first (before the text)
-or last (after the text).
+Pay attention to whether the icon is before the text or after.
 
 2. Logical property creates appropriate spacing irrespective of text direction
  */
 
-.with-icon-first,
-.with-icon-last {
+.with-icon--before,
+.with-icon--after,
+.with-icon--larger {
 
 	align-items: baseline;
 	display: inline-flex;
 
 }
 
-/**
-Use this class on the SVG's parent if there is a need for
-an inline icon that is distinctly larger than the text.
- */
-.with-icon-large {
+.with-icon--larger {
 
 	align-items: center;
 
@@ -68,7 +67,7 @@ an inline icon that is distinctly larger than the text.
 
 [dir="ltr"] {
 
-	.with-icon-first {
+	.with-icon--before {
 
 		.icon {
 
@@ -85,7 +84,7 @@ an inline icon that is distinctly larger than the text.
 
 	}
 
-	.with-icon-last {
+	.with-icon--after {
 
 		.icon {
 
@@ -106,7 +105,7 @@ an inline icon that is distinctly larger than the text.
 
 [dir="rtl"] {
 
-	.with-icon-first {
+	.with-icon--before {
 
 		.icon {
 
@@ -123,7 +122,7 @@ an inline icon that is distinctly larger than the text.
 
 	}
 
-	.with-icon-last {
+	.with-icon--after {
 
 		.icon {
 

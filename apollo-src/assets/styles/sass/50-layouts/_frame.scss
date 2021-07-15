@@ -12,6 +12,8 @@
 \*------------------------------------*/
 
 .l-frame {
+	background-color: $mist-gray;
+	display: block;
 	position: relative;
 }
 
@@ -29,6 +31,7 @@
 }
 
 
+.l-frame > iframe,
 .l-frame > img,
 .l-frame > video {
 	height: 100%;

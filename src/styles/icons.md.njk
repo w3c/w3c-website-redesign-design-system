@@ -22,7 +22,7 @@ The default `.icon` class uses the relative `em` unit and is ideal for using ico
 {{ iconMacros.iconDefault('Cat') }}
 ```
 
-If there is a need to control the size of the spacing between an icon and text, add the `.with-icon-first` or `.with-icon-last` class to the parent element. This applies `inline-flex` and alignment styles to help things line up nicely, and uses margin for spacing. Choose the class which reflects the correct order of icon and text.
+If there is a need to control the size of the spacing between an icon and text, add the `.with-icon--before` or `.with-icon--after` class to the parent element. This applies `inline-flex` and alignment styles to help things line up nicely, and uses margin for spacing. Choose the class which reflects the correct order of icon and text.
 
 {{ macroExample.showCase('Inline icon with additional spacing', '../demos/icon-spaced.html') }}
 
@@ -30,7 +30,7 @@ If there is a need to control the size of the spacing between an icon and text, 
 {{ iconMacros.iconSpaced('Cat') }}
 ```
 
-If there is a need for an inline icon that is distinctly larger than the default text, use `.with-icon-large` on the parent element and add the modifier class `.icon--large` to the SVG. The `.icon--large` class uses the `rem` unit to specify a size relative to the root font size.
+If there is a need for an inline icon that is distinctly larger than the default text, use `.with-icon--larger` on the parent element and add the modifier class `.icon--larger` to the SVG. The `.icon--larger` class uses the `rem` unit to specify a size relative to the root font size.
 
 {{ macroExample.showCase('Large inline icon', '../demos/icon-large.html') }}
 

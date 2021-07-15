@@ -19,184 +19,169 @@ var navigation = (function () {
 		};
 	}
 
-	const runMobileNav = function () {
-
-		const mobileNav = document.querySelector('.nav-mobile');
-		const mobileNavToggler = document.querySelector('[data-button="mobile-nav-toggle"]');
-		const subnavTrigger = Array.from(mobileNav.querySelectorAll('.has-children'));
-
-		// I18N for button value
-		let closeText = 'Close ';
-		if (document.documentElement.lang === 'fr') {
-			closeText = 'Fermer '
-		} else if (document.documentElement.lang === 'ja') {
-			closeText = '閉じる '
-		} else if (document.documentElement.lang === 'zh-Hans') {
-			closeText = '关闭 '
-		}
-
-		// Close all open submenus
-		const closeSubmenus = function () {
-
-			subnavTrigger.forEach(function (trigger) {
-
-				trigger.setAttribute('aria-expanded', 'false');
-				trigger.nextElementSibling.setAttribute('aria-hidden', 'true');
-
-			});
-
-		}
-
-		// Toggle mobile navigation
-		const toggleMobileNav = function () {
-
-			if (mobileNavToggler && mobileNav) {
-
-				mobileNavToggler.setAttribute('aria-expanded', 'false');
-				mobileNav.setAttribute('aria-hidden', 'true');
-
-				document.addEventListener('click', function (event) {
-
-					if (event.target.matches('.global-header__menu-btn')) {
-
-						if (event.target.getAttribute('aria-expanded') === 'false') {
-
-							event.target.setAttribute('aria-expanded', 'true');
-							event.target.childNodes[0].nodeValue = closeText;
-							mobileNav.setAttribute('aria-hidden', 'false');
-
-						} else {
-
-							event.target.setAttribute('aria-expanded', 'false');
-							event.target.childNodes[0].nodeValue = 'Menu ';
-							mobileNav.setAttribute('aria-hidden', 'true');
-							closeSubmenus();
-
-						}
-
-					}
-
-				}, false);
-
-			}
-
-		}
-		toggleMobileNav();
-
-		// Toggle mobile navigation submenus
-		if (subnavTrigger.length > 0) {
-
-			subnavTrigger.forEach(function (trigger) {
-
-				trigger.setAttribute('aria-expanded', 'false');
-				trigger.nextElementSibling.setAttribute('aria-hidden', 'true');
-
-			});
-
-			document.addEventListener('click', function (event) {
-
-				if (event.target.matches('.nav-mobile .has-children')) {
-
-					event.preventDefault();
-
-					const subMenu = event.target.parentElement.querySelector('.nav-mobile__submenu');
-
-					if (event.target.getAttribute('aria-expanded') === 'false') {
-
-						event.target.setAttribute('aria-expanded', 'true');
-						subMenu.setAttribute('aria-hidden', 'false');
-						const prevMenu = subMenu.parentElement.parentElement.parentElement;
-						subMenu.style.minHeight = prevMenu.offsetHeight + 'px';
-						window.scrollTo({
-							top: 0,
-							left: 0,
-							behaviour: 'auto'
-						});
-
-					} else {
-
-						closeSubmenus();
-
-					}
-
-				}
-
-				if (event.target.matches('.nav-mobile [data-button="submenu-close"]')) {
-
-					event.target.parentElement.setAttribute('aria-hidden', 'true');
-					event.target.closest('li').querySelector('.has-children').setAttribute('aria-expanded', 'false');
-
-				}
-
-			});
-
-		}
-
+	// Helper: Check whether element exists
+	function exists(elem) {
+		return (elem != null && (elem.length >= 0 || elem.innerHTML.length >= 0) )
 	}
-	runMobileNav();
 
-	const runWideNav = function () {
+	let nav = document.querySelector('.global-nav__inner ul');
+	let mobileNavToggler = document.querySelector('[data-trigger="mobile-nav"]');
+	mobileNavToggler.style = "";
+	let menuIcon = '<svg class="icon icon--larger" xmlns:xlink="http://www.w3.org/1999/xlink" focusable="false" aria-hidden="true" viewBox="0 0 448 512" width="1em" height="1em"><use class="menu-icon" href="dist/assets/svg/nav-icons.svg#menu-icon"></use><use class="close-icon" href="dist/assets/svg/nav-icons.svg#close-icon"></use></svg>';
+	let parentLinks = [].slice.call(nav.querySelectorAll('.top-nav-item.has-children > a'));
+	let subNavArray = [].slice.call(nav.querySelectorAll('.nav__submenu'));
 
-		const wideNav = document.querySelector('.nav-wide');
-		const subnavTrigger = Array.from(wideNav.querySelectorAll('.has-children'));
+	// I18N for 'Menu' button text
+	let menuText = 'Menu';
+	if (document.documentElement.lang === 'ja') {
+		menuText = 'メニュー';
+	} else if (document.documentElement.lang === 'zh-hans') {
+		menuText = '菜单';
+	}
 
-		// Close all open submenus
-		const closeSubmenus = function () {
+	// I18N for 'Main menu' back button text
+	let backText = 'Back to main menu';
+	if (document.documentElement.lang === 'ja') {
+		backText = 'メインメニューに戻る';
+	} else if (document.documentElement.lang === 'zh-hans') {
+		backText = '返回主菜单';
+	}
 
-			subnavTrigger.forEach(function (trigger) {
+	let closeSubNavs = function () {
+		let subNavTriggers = [].slice.call(nav.querySelectorAll('[data-trigger="subnav"]'));
+		subNavTriggers.forEach(function (trigger) {
+			trigger.setAttribute('aria-expanded', 'false');
+			trigger.removeAttribute('class');
+		});
+	}
 
-				trigger.setAttribute('aria-expanded', 'false');
-				trigger.parentElement.querySelector('.nav-wide__submenu').setAttribute('aria-hidden', 'true');
+	// Toggle mobile navigation
+	let toggleMobileNav = function () {
 
-			});
+		if (mobileNavToggler && nav) {
 
-		}
-
-		// Toggle wide navigation submenus
-		if (subnavTrigger.length > 0) {
-
-			subnavTrigger.forEach(function (trigger) {
-
-				trigger.setAttribute('aria-expanded', 'false');
-				trigger.parentElement.querySelector('.nav-wide__submenu').setAttribute('aria-hidden', 'true');
-
-			});
+			mobileNavToggler.innerHTML = menuText + menuIcon;
+			mobileNavToggler.setAttribute('aria-expanded', 'false');
 
 			document.addEventListener('click', function (event) {
 
-				if (event.target.matches('.nav-wide .has-children')) {
-
-					event.preventDefault();
-
-					const subMenu = event.target.parentElement.querySelector('.nav-wide__submenu');
+				if (event.target.matches('[data-trigger="mobile-nav"]')) {
 
 					if (event.target.getAttribute('aria-expanded') === 'false') {
 
-						closeSubmenus();
 						event.target.setAttribute('aria-expanded', 'true');
-						subMenu.setAttribute('aria-hidden', 'false');
 
 					} else {
 
 						event.target.setAttribute('aria-expanded', 'false');
-						subMenu.setAttribute('aria-hidden', 'true');
+						closeSubNavs();
 
 					}
 
 				}
 
-				if (event.target.matches('[data-button="wide-nav-close"]')) {
-
-					closeSubmenus();
-
-				}
-
-			});
+			}, false);
 
 		}
 
 	}
-	runWideNav();
+
+	// Media query event handler
+	let mq = window.matchMedia('(min-width: 70em)');
+	mq.addListener(WidthChange);
+	WidthChange(mq);
+
+	// Media query change
+	function WidthChange(mq) {
+		if (!(mq.matches)) {
+			toggleMobileNav();
+		} else {
+			mobileNavToggler.setAttribute('aria-expanded', 'true');
+		}
+	}
+
+	if (exists(parentLinks)) {
+
+		parentLinks.forEach(function (item) {
+
+			let clonedLink = item.cloneNode(true);
+			let linkText = item.textContent + '&nbsp;';
+			let toggleButton = document.createElement('button');
+			let backButton = document.createElement('button');
+			let fragment = document.createDocumentFragment();
+			let subNav = item.parentNode.querySelector('.nav__submenu__intro');
+			let submenuFirstChild = subNav.querySelector('.nav__submenu__intro__text');
+
+			toggleButton.setAttribute('type', 'button');
+			toggleButton.setAttribute('aria-expanded', 'false');
+			toggleButton.setAttribute('data-trigger', 'subnav');
+			toggleButton.innerHTML = linkText + '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon nav-small" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 320 512" class="icon nav-wide" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-down" href="dist/assets/svg/nav-icons.svg#angle-down"></use><use class="angle-up" href="dist/assets/svg/nav-icons.svg#angle-up"></use></svg>';
+
+			backButton.setAttribute('type', 'button');
+			backButton.setAttribute('class', 'button button--ghost u-full-width with-icon--before with-icon--larger');
+			backButton.setAttribute('data-trigger', 'mobile-back');
+			backButton.innerHTML = '<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 512" class="icon icon--larger" focusable="false" aria-hidden="true" width="1em" height="1em"><use class="angle-left" href="dist/assets/svg/nav-icons.svg#angle-left"></use><use class="angle-right" href="dist/assets/svg/nav-icons.svg#angle-right"></use></svg>' + backText;
+
+			fragment.appendChild(backButton);
+			fragment.appendChild(clonedLink);
+
+			subNav.insertBefore(fragment, submenuFirstChild);
+			item.parentNode.replaceChild(toggleButton, item);
+
+		});
+
+		for (let i = 0; i < subNavArray.length; i++) {
+
+			subNavArray[i].style = "";
+
+		}
+
+		document.addEventListener('click', function (event) {
+
+			if (event.target.matches('[data-trigger="subnav"]')) {
+
+				if (event.target.matches('[aria-expanded="false"]')) {
+
+					closeSubNavs();
+					event.target.setAttribute('aria-expanded', 'true');
+					event.target.setAttribute('class', 'js-active');
+
+				} else {
+
+					event.target.setAttribute('aria-expanded', 'false');
+					event.target.removeAttribute('class');
+
+				}
+
+			} else if (event.target.matches('[data-trigger="mobile-back"]')) {
+
+				event.target.closest('li').querySelector('[data-trigger="subnav"]').setAttribute('aria-expanded', 'false');
+
+			} else {
+
+				closeSubNavs();
+
+			}
+
+		});
+
+		document.addEventListener('keyup', function (event) {
+
+			if (event.defaultPrevented) {
+				return;
+			}
+
+			let key = event.key || event.keyCode;
+
+			if (key === 'Escape' || key === 'Esc' || key === 27) {
+
+				closeSubNavs();
+
+			}
+
+		});
+
+	}
 
 })();
 

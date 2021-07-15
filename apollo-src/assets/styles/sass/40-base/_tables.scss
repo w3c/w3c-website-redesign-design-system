@@ -55,6 +55,7 @@ See https://www.the-haystack.com/2013/09/24/responsive-scrollable-tables/
                 linear-gradient(270deg, $white 0%, rgba(255, 255, 255, 0) 3rem),
                 linear-gradient(270deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0) 1rem);
         background-repeat: no-repeat;
+        max-width: 100%;
         overflow-x: auto;
         padding-left: 1px; // Same as border width
 
