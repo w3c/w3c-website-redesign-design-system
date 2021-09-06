@@ -1,6 +1,6 @@
 # W3C design system
 
-**Note:** this repo has been replaced by the [w3c-website-templates-bundle](https://github.com/w3c/w3c-website-templates-bundle/tree/design-system-docs) repo which includes frontend assets, templates and Design System documentation. 
+**Note:** this repo has been replaced by the [w3c-website-templates-bundle](https://github.com/w3c/w3c-website-templates-bundle/) repo which includes frontend assets, templates and Design System documentation. 
 
 ---
 
